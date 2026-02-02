@@ -36,8 +36,8 @@ export function showLoggedInUser(name) {
         ${name}
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-        <li><a class="dropdown-item" href="#" id="messageBtn">Message</a></li>
-        <li><a class="dropdown-item" href="#" id="logoutBtn">Log out</a></li>
+        <li><a class="dropdown-item" href="#" id="messageBtn">Napsat zprávu</a></li>
+        <li><a class="dropdown-item" href="#" id="logoutBtn">Odhlásit se</a></li>
       </ul>
     </div>
   `;

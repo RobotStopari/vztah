@@ -18,18 +18,18 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-sm">
         <div class="modal-header bg-white">
-          <h5 class="modal-title">Login</h5>
+          <h5 class="modal-title">Přihlášení</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-white">
           <div class="mb-3">
-            <input type="text" id="loginUsername" class="form-control" placeholder="Username">
+            <input type="text" id="loginUsername" class="form-control" placeholder="Uživatelské jméno">
           </div>
           <div class="mb-3">
-            <input type="password" id="loginPassword" class="form-control" placeholder="Password">
+            <input type="password" id="loginPassword" class="form-control" placeholder="Heslo">
           </div>
-          <div id="loginError" class="text-danger mb-2" style="display:none;">Wrong username or password</div>
-          <button id="loginButton" class="btn w-100">Login</button>
+          <div id="loginError" class="text-danger mb-2" style="display:none;">Špatné jméno nebo heslo</div>
+          <button id="loginButton" class="btn w-100">Přihlásit se</button>
         </div>
       </div>
     </div>
@@ -40,15 +40,15 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-sm">
         <div class="modal-header bg-white">
-          <h5 class="modal-title">Send a Message</h5>
+          <h5 class="modal-title">Odeslat zprávu</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-white">
           <div class="mb-3">
-            <textarea id="messageText" class="form-control" rows="3" placeholder="Write your message..."></textarea>
+            <textarea id="messageText" class="form-control" rows="3" placeholder="Napište svou zprávu..."></textarea>
           </div>
-          <button id="sendMessageBtn" class="btn btn-pink w-100">Send</button>
-          <div id="messageError" class="text-danger mt-2" style="display:none;">Please enter a message</div>
+          <button id="sendMessageBtn" class="btn btn-pink w-100">Odeslat</button>
+          <div id="messageError" class="text-danger mt-2" style="display:none;">Prosím, zadejte zprávu</div>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" id="loginNavLink" data-bs-toggle="modal" data-bs-target="#loginModal">
-              Login
+              Přihlášení
             </a>
           </li>
         </ul>
