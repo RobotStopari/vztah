@@ -1,0 +1,20 @@
+:root {
+	--color-bg-main: linear-gradient(135deg, #f0f4f8, #e0f7fa);
+	--color-text-main: #222;
+	--color-text-muted: #7a7a7a;
+
+	--color-pink-main: #ff7eb9;
+	--color-pink-hover: #ff91c1;
+	--color-pink-soft: #ffebf4;
+	--color-pink-accent: #d05c5c;
+
+	--color-border-soft: #dce1e8;
+
+	--shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+	--shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+	--shadow-pink-glow: 0 8px 30px rgba(255, 150, 180, 0.25);
+	--shadow-pink-soft: 0 2px 6px rgba(255, 126, 185, 0.3);
+
+	--radius-lg: 18px;
+	--radius-md: 0.25rem;
+}

@@ -1,0 +1,30 @@
+#loginButton,
+.btn-pink {
+	background-color: var(--color-pink-main);
+	border: 1px solid var(--color-pink-main);
+	color: #fff;
+	font-weight: 500;
+}
+
+#loginButton {
+	transition:
+		background-color 0.2s,
+		box-shadow 0.2s;
+}
+
+#loginButton:hover,
+#loginButton:focus,
+.btn-pink:hover {
+	background-color: var(--color-pink-hover);
+}
+
+#loginButton:hover,
+#loginButton:focus {
+	box-shadow: var(--shadow-pink-soft);
+}
+
+#loginUsername:focus,
+#loginPassword:focus {
+	border-color: var(--color-pink-main);
+	box-shadow: 0 0 5px rgba(255, 126, 185, 0.5);
+}
