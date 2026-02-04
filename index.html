@@ -1,24 +1,38 @@
 <!doctype html>
 <html lang="cs">
 	<head>
+		<!-- =====================================================
+	     BASIC META
+	===================================================== -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- Heart favicon using emoji -->
-		<!-- Fancy heart favicon -->
+
+		<!-- =====================================================
+	     FAVICON (SVG HEART)
+	===================================================== -->
 		<link
 			rel="icon"
 			type="image/svg+xml"
 			href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-    <path fill='red' d='M32 58s26-16 26-34c0-9-7-16-16-16-6 0-12 4-14 10-2-6-8-10-14-10-9 0-16 7-16 16 0 18 26 34 26 34z'/>
-  </svg>"
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+	<path fill='red' d='M32 58s26-16 26-34c0-9-7-16-16-16-6 0-12 4-14 10-2-6-8-10-14-10-9 0-16 7-16 16 0 18 26 34 26 34z'/>
+</svg>"
 		/>
 
-		<title>Naše Vztahová Stránka</title>
+		<title>Naše vztahová stránka</title>
+
+		<!-- =====================================================
+	     STYLES
+	===================================================== -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+
 		<link rel="stylesheet" href="css/variables.css" />
 		<link rel="stylesheet" href="css/base.css" />
 		<link rel="stylesheet" href="css/typography.css" />
@@ -27,7 +41,9 @@
 		<link rel="stylesheet" href="css/effects.css" />
 		<link rel="stylesheet" href="css/auth.css" />
 
-		<!-- Firebase SDK -->
+		<!-- =====================================================
+	     FIREBASE SDK
+	===================================================== -->
 		<script
 			type="module"
 			src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"
@@ -39,69 +55,60 @@
 	</head>
 
 	<body class="fade-in">
-		<!-- LOGIN MODAL -->
+		<!-- =====================================================
+	     LOGIN MODAL
+	===================================================== -->
 		<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content border-0 shadow-sm">
 					<div class="modal-header bg-white">
 						<h5 class="modal-title">Přihlášení</h5>
-						<button
-							type="button"
-							class="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body bg-white">
-						<div class="mb-3">
-							<input
-								type="text"
-								id="loginUsername"
-								class="form-control"
-								placeholder="Uživatelské jméno"
-							/>
-						</div>
-						<div class="mb-3">
-							<input
-								type="password"
-								id="loginPassword"
-								class="form-control"
-								placeholder="Heslo"
-							/>
-						</div>
-						<div id="loginError" class="text-danger mb-2" style="display: none">
+						<input
+							id="loginUsername"
+							class="form-control mb-3"
+							placeholder="Uživatelské jméno"
+						/>
+						<input
+							id="loginPassword"
+							type="password"
+							class="form-control mb-3"
+							placeholder="Heslo"
+						/>
+
+						<div id="loginError" class="text-danger mb-2 d-none">
 							Špatné jméno nebo heslo
 						</div>
+
 						<button id="loginButton" class="btn w-100">Přihlásit se</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- MESSAGE MODAL -->
+		<!-- =====================================================
+	     MESSAGE MODAL
+	===================================================== -->
 		<div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content border-0 shadow-sm">
 					<div class="modal-header bg-white">
 						<h5 class="modal-title">Odeslat zprávu</h5>
-						<button
-							type="button"
-							class="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body bg-white">
-						<div class="mb-3">
-							<textarea
-								id="messageText"
-								class="form-control"
-								rows="3"
-								placeholder="Napište svou zprávu..."
-							></textarea>
-						</div>
+						<textarea
+							id="messageText"
+							class="form-control mb-3"
+							rows="3"
+							placeholder="Napište svou zprávu..."
+						></textarea>
+
 						<button id="sendMessageBtn" class="btn btn-pink w-100">Odeslat</button>
-						<div id="messageError" class="text-danger mt-2" style="display: none">
+
+						<div id="messageError" class="text-danger mt-2 d-none">
 							Prosím, zadejte zprávu
 						</div>
 					</div>
@@ -109,35 +116,32 @@
 			</div>
 		</div>
 
+		<!-- =====================================================
+	     PARTICLE BACKGROUND
+	===================================================== -->
 		<canvas id="particles"></canvas>
 
-		<!-- NAVBAR -->
+		<!-- =====================================================
+	     NAVBAR
+	===================================================== -->
 		<nav
 			class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 fixed-top"
 		>
 			<div class="container">
 				<a class="navbar-brand fw-bold" href="/">Naše stránka</a>
+
 				<button
 					class="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
+
 				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a
-								class="nav-link"
-								href="https://www.notion.so/strelkakralupy/Zdroje-1449acf9beef80f0902ded7bd8fb0b34"
-								target="_blank"
-								>Zdroje</a
-							>
-						</li>
+						<!-- SPARK -->
 						<li class="nav-item">
 							<a
 								class="nav-link"
@@ -146,27 +150,142 @@
 								>SPARK</a
 							>
 						</li>
-						<li class="nav-item">
-							<a
-								class="nav-link"
-								href="https://www.notion.so/strelkakralupy/Co-spolu-chceme-2de9acf9beef80caad8fe06b89160d66"
-								target="_blank"
-								>Chceme spolu</a
-							>
+
+						<!-- NAŠE VĚCI -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+								Naše věci
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.notion.so/strelkakralupy/Zdroje-1449acf9beef80f0902ded7bd8fb0b34"
+										target="_blank"
+									>
+										<i class="bi bi-journal-text me-2"></i>
+										Zdroje
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.notion.so/strelkakralupy/Co-spolu-chceme-2de9acf9beef80caad8fe06b89160d66"
+										target="_blank"
+									>
+										<i class="bi bi-heart-fill me-2"></i>
+										Chceme spolu
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://drive.google.com/drive/folders/1N5EpCNmfHBPjsQHr681EsdxlveIgJNgM"
+										target="_blank"
+									>
+										<i class="bi bi-google me-2"></i>
+										Disk
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.notion.so/strelkakralupy/Datab-ze-kn-ek-2fd9acf9beef80a08832f5a7e2235d33"
+										target="_blank"
+									>
+										<i class="bi bi-book me-2"></i>
+										Databáze knížek
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.notion.so/strelkakralupy/Cestov-n-n-pady-na-m-sta-a-v-ci-2f89acf9beef80359d98ea52af1f80fc"
+										target="_blank"
+									>
+										<i class="bi bi-map me-2"></i>
+										Kam chceme cestovat
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://photos.google.com/u/1/share/AF1QipNaNehcE6-iopD3MEGza9nHf2KwC9Okxuz0C2PpT8OXDSQdiFyel8kX202VJamJWQ"
+										target="_blank"
+									>
+										<i class="bi bi-images me-2"></i>
+										Kolečkaaa
+									</a>
+								</li>
+							</ul>
 						</li>
-						<li class="nav-item">
-							<a
-								class="nav-link"
-								href="https://drive.google.com/drive/folders/1N5EpCNmfHBPjsQHr681EsdxlveIgJNgM?usp=sharing"
-								target="_blank"
-								>Disk</a
-							>
+
+						<!-- ODDÍLÁCTVÍ -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+								Oddíláctví
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="dropdown-item" href="https://oddiltitio.cz/" target="_blank">
+										<i class="bi bi-people-fill me-2"></i>
+										Titio
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://kurzzapalovac.cz/"
+										target="_blank"
+									>
+										<i class="bi bi-fire me-2"></i>
+										Zapalovač
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.strelka.cz/"
+										target="_blank"
+									>
+										<i class="bi bi-bullseye me-2"></i>
+										Střelka Kralupy
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://www.google.com/maps/d/u/0/viewer?mid=1eax7FYo-eveuxdhgBWK7U7wwpQ-a-F4&z=6"
+										target="_blank"
+									>
+										<i class="bi bi-geo-alt-fill me-2"></i>
+										Mapa základen
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://mapy.com/s/gafojofeve"
+										target="_blank"
+									>
+										<i class="bi bi-backpack me-2"></i>
+										Místa na puťáčky
+									</a>
+								</li>
+								<li>
+									<a
+										class="dropdown-item"
+										href="https://mapy.com/s/guposukuto"
+										target="_blank"
+									>
+										<i class="bi bi-moon-stars me-2"></i>
+										Spaní na puťáčcích
+									</a>
+								</li>
+							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://oddiltitio.cz/" target="_blank"
-								>Titio</a
-							>
-						</li>
+
+						<!-- LOGIN -->
 						<li class="nav-item">
 							<a
 								class="nav-link"
@@ -183,6 +302,9 @@
 			</div>
 		</nav>
 
+		<!-- =====================================================
+	     MAIN CONTENT
+	===================================================== -->
 		<div class="container py-4 px-3">
 			<h1>💞 Naše stránečka 🥰</h1>
 
@@ -199,12 +321,11 @@
 
 				<h5 class="mt-2 mb-2">Budoucí děti</h5>
 				<div class="row">
-					<div class="col-6 children-column">
+					<div class="col-6">
 						<h6>👦 Kluci</h6>
 						<div id="boys"></div>
 					</div>
-
-					<div class="col-6 children-column">
+					<div class="col-6">
 						<h6>👧 Holky</h6>
 						<div id="girls"></div>
 					</div>
@@ -214,19 +335,19 @@
 			<h2 class="section-title">Hlavní události</h2>
 			<div id="events"></div>
 		</div>
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-		></script>
 
+		<!-- =====================================================
+	     SCRIPTS
+	===================================================== -->
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 		<script src="utils.js"></script>
 		<script src="console-utils.js"></script>
 		<script src="particles.js"></script>
 
 		<script type="module">
 			import "./events/firebase.js";
-			import { hashPassword } from "./events/utils.js";
 			import { loadEvents } from "./events/eventsLoader.js";
 			import { loadChildren } from "./events/children.js";
 			import { setupLogin, showLoggedInUser } from "./events/login.js";
